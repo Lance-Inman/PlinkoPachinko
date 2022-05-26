@@ -1,0 +1,4 @@
+repository "PlinkoPachinko@Local_Group_Games@cloud"
+  path "/"
+    br "/main"
+    co "/main"
