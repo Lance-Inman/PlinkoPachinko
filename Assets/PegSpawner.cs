@@ -5,10 +5,21 @@ using UnityEngine;
 public class PegSpawner : MonoBehaviour
 {
     public GameObject peg;
+    [Range(0, 11)]
+    public float spawnRate;
+    public Spawnable spawn1;
     private float minX;
     private float maxX;
     private float minY;
     private float maxY;
+
+    public class Spawnable
+    {
+        public GameObject spawnable;
+        [Range(0, 11)]
+        public float spawnRate;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +36,7 @@ public class PegSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Random.Range(1, 100) >= 99.0) {
+        if (Random.Range(0, 100) < spawnRate) {
             Instantiate(peg, new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)), Quaternion.identity);
         }
     }
